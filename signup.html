@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ثبت نام کاربر</title>
+  <style>
+    body {
+      font-family: Tahoma, Arial, sans-serif;
+      direction: rtl;
+      text-align: right;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+    .form-container {
+      max-width: 500px;
+      margin: 0 auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+      color: #444;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background: #4CAF50;
+      color: white;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #45a049;
+    }
+    .success-message {
+      display: none;
+      text-align: center;
+      color: #4CAF50;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>فرم ثبت نام کاربر</h2>
+    <form id="signupForm" action="https://m-razeghi.app.n8n.cloud/webhook/signup" method="POST">
+      <label>نام و نام خانوادگی</label>
+      <input type="text" name="name" required />
+
+      <label>سن</label>
+      <input type="number" name="sen" required />
+
+      <label>ایمیل</label>
+      <input type="email" name="email" required />
+
+      <label>شماره تلفن</label>
+      <input type="tel" name="phone" />
+
+      <button type="submit">ثبت نام</button>
+    </form>
+
+    <!-- پیام موفقیت -->
+    <div id="successMessage" class="success-message">
+      ✅ ثبت نام شما با موفقیت انجام شد!
+    </div>
+  </div>
+
+  <script>
+    // نمایش پیام موفقیت پس از ارسال فرم
+    document.getElementById("signupForm").addEventListener("submit", function(e) {
+      // بعد از سابمیت، پیام موفقیت نشون داده میشه
+      setTimeout(() => {
+        document.getElementById("successMessage").style.display = "block";
+        document.getElementById("signupForm").style.display = "none";
+      }, 1000);
+    });
+  </script>
+
+</body>
+</html>
